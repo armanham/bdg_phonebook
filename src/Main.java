@@ -22,7 +22,8 @@ public class Main {
 
         service.view();
 
+        service.sortByName();
 
-
+        service.view();
     }
 }

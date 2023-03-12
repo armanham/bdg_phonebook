@@ -2,7 +2,7 @@ package model;
 
 import java.util.List;
 
-public class User extends Contact implements Comparable {
+public class User extends Contact {
 
 
     private PhoneNumberType numberType;
@@ -47,10 +47,5 @@ public class User extends Contact implements Comparable {
                 "numberType=" + numberType +
                 ", emailType=" + emailType +
                 "}\n";
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        return 0;
     }
 }

@@ -1,12 +1,13 @@
 package service;
 
+import model.Contact;
 import model.EmailType;
 import model.PhoneNumberType;
 import model.User;
 import repository.PhoneBookRepository;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class PhoneBookService implements PhoneBookRepository {
@@ -128,6 +129,6 @@ public class PhoneBookService implements PhoneBookRepository {
 
     @Override
     public void sortByName() {
-        Collections.sort(users.)
+        users.sort(Comparator.comparing(Contact::getName));
     }
 }

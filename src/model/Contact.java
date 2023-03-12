@@ -70,4 +70,9 @@ public abstract class Contact {
                 ", company='" + company + '\'' +
                 "}\n";
     }
+
+ //   @Override
+//    public int compareTo(Contact contact) {
+//        return name < contact.getName() ? -1 : name > contact.getName() ? 1 : doSecodaryOrderSort(o);
+//    }
 }
