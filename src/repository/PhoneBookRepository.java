@@ -1,22 +1,28 @@
 package repository;
 
-import model.EmailType;
-import model.PhoneNumberType;
-import model.User;
+import model.email.Email;
+import model.phone.Phone;
+import model.user.User;
 
 import java.util.List;
 
 public interface PhoneBookRepository {
 
-    User add(String name, List<String> phoneNumbers);
+    User add(String name, List<Phone> phoneNumbers);
 
     User updateBy(String name,
                   String newName,
-                  List<String> phoneNumbers,
-                  List<String> emails,
-                  String newCompany,
-                  PhoneNumberType numberType,
-                  EmailType emailType);
+                  List<Phone> phoneNumbers,
+                  List<Email> emails,
+                  String newCompany);
+
+    User updateNameBy(String name, String newName);
+
+    User updatePhonesBy(String name, List<Phone> newPhoneNumbers);
+
+    User updateEmailsBy(String name, List<Email> newEmails);
+
+    User updateCompanyBy(String name, String newCompany);
 
     boolean deleteBy(String name);
 

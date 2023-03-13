@@ -1,4 +1,7 @@
-import model.EmailType;
+import model.email.Email;
+import model.email.EmailType;
+import model.phone.Phone;
+import model.phone.PhoneType;
 import service.PhoneBookService;
 
 import java.util.List;
@@ -6,21 +9,24 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         PhoneBookService service = new PhoneBookService();
-        service.add("Arman", List.of("033322269", "033012232"));
-        service.add("Karo", List.of("033322262", "033012235"));
-        service.add("ArmanH", List.of("033322261", "033012231"));
-        service.add("ArmanHam", List.of("033322266", "033012200"));
-        service.add("Arm", List.of("033322248", "033012270"));
+        service.add("Arman", List.of(new Phone("0333222690", PhoneType.HOME)));
+        service.add("Karo", List.of(new Phone("0123456789", PhoneType.WORK), new Phone("0333222691", PhoneType.SCHOOL)));
+        service.add("ArmanH", List.of(new Phone("0987653698", PhoneType.MOBILE)));
 
-        System.out.println(service.searchBy("Karo"));
-        System.out.println(service.deleteBy("Karoo"));
-        System.out.println(service.searchBy("Karo"));
 
-        service.updateBy("Arman", null, List.of("099", "088"), List.of("email1", "email 2"),
-                null, null,EmailType.GMAIL);
-        System.out.println(service.searchBy("Arman"));
+
+        service.updateBy("Arman", "Armo",
+                List.of(new Phone("0123456798", PhoneType.HOME)),
+                List.of(new Email("arman@mail.com", EmailType.GMAIL)),
+                null);
 
         service.view();
+
+        service.updateBy("Karo", "Karen",
+                List.of(new Phone("0987653698", PhoneType.SCHOOL)),
+                List.of(new Email("arman@mail.com", EmailType.GMAIL)),
+                null);
+
 
         service.sortByName();
 
